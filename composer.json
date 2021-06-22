@@ -13,7 +13,8 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "laravel/spark-paddle": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -65,6 +66,12 @@
         "phpstan": "./vendor/bin/phpstan analyse --memory-limit=2G",
         "fixcs": "./vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config=.php-cs-fixer.dist.php -v --using-cache=no --show-progress=dots --diff $cs_fix_files"        
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://spark.laravel.com"
+        }
+    ],    
     "extra": {
         "laravel": {
             "dont-discover": []
