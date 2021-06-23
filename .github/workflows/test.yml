@@ -21,6 +21,8 @@ jobs:
       CACHE_DRIVER: redis
       QUEUE_CONNECTION: redis
       SESSION_DRIVER: redis
+      SPARK_USERNAME: ${{ secrets.SPARK_USERNAME }}
+      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}      
       
 
     services:
@@ -116,6 +118,8 @@ jobs:
       CACHE_DRIVER: redis
       QUEUE_CONNECTION: redis
       SESSION_DRIVER: redis      
+      SPARK_USERNAME: ${{ secrets.SPARK_USERNAME }}
+      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}      
 
     steps:
     - name: Checkout
@@ -148,7 +152,9 @@ jobs:
         restore-keys: ${{ runner.os }}-composer-
 
     - name: Install Composer dependencies
-      run: composer install --no-progress --prefer-dist --optimize-autoloader
+      run: |
+        composer config http-basic.spark.laravel.com ${SPARK_USERNAME} ${SPARK_API_TOKEN}
+        composer install --no-progress --prefer-dist --optimize-autoloader
 
     - name: Prepare the application
       run: |
