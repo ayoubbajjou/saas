@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Team;
 
 return [
 
@@ -78,7 +78,7 @@ return [
     'billables' => [
 
         'user' => [
-            'model' => User::class,
+            'model' => Team::class,
 
             'trial_days' => 5,
 

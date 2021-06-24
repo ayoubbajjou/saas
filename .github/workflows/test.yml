@@ -22,7 +22,13 @@ jobs:
       QUEUE_CONNECTION: redis
       SESSION_DRIVER: redis
       SPARK_USERNAME: ${{ secrets.SPARK_USERNAME }}
-      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}      
+      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}
+      CASHIER_CURRENCY: USD
+      CASHIER_CURRENCY_LOCALE: en
+      PADDLE_SANDBOX: true
+      PADDLE_VENDOR_ID: ${{ secrets.PADDLE_VENDOR_ID }}
+      PADDLE_VENDOR_AUTH_CODE: ${{ secrets.PADDLE_VENDOR_AUTH_CODE }}
+      PADDLE_PUBLIC_KEY: ${{ secrets.PADDLE_PUBLIC_KEY }}
       
 
     services:
@@ -119,7 +125,14 @@ jobs:
       QUEUE_CONNECTION: redis
       SESSION_DRIVER: redis      
       SPARK_USERNAME: ${{ secrets.SPARK_USERNAME }}
-      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}      
+      SPARK_API_TOKEN: ${{ secrets.SPARK_API_TOKEN }}
+      CASHIER_CURRENCY: USD
+      CASHIER_CURRENCY_LOCALE: en
+      PADDLE_SANDBOX: true
+      PADDLE_VENDOR_ID: ${{ secrets.PADDLE_VENDOR_ID }}
+      PADDLE_VENDOR_AUTH_CODE: ${{ secrets.PADDLE_VENDOR_AUTH_CODE }}
+      PADDLE_PUBLIC_KEY: ${{ secrets.PADDLE_PUBLIC_KEY }}
+
 
     steps:
     - name: Checkout

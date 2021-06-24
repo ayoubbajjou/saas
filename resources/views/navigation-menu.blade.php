@@ -19,6 +19,9 @@
                     <x-jet-nav-link href="{{ route('sites.index') }}" :active="request()->routeIs('sites.index')">
                         {{ __('Sites') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="/billing">
+                        {{ __('Manage Subscription') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

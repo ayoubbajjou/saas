@@ -7,10 +7,11 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Spark\Billable;
 
 class Team extends JetstreamTeam
 {
-    use HasFactory;
+    use HasFactory, Billable;
 
     /**
      * The attributes that should be cast to native types.
@@ -41,4 +42,14 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    /**
+     * Get the email address that should be associated with the Paddle customer.
+     *
+     * @return string
+     */
+    public function paddleEmail()
+    {
+        return $this->owner->email;
+    }
 }
