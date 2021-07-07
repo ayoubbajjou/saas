@@ -13,6 +13,5 @@ class SiteSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }

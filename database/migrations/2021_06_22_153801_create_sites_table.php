@@ -15,6 +15,10 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->string('Subdomain');
+            $table->string('Username');
+            $table->string('Password');
+            $table->string('Domain');
             $table->timestamps();
         });
     }

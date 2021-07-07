@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SiteRequest;
 use App\Models\Site;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SiteController extends Controller
 {
@@ -33,9 +36,21 @@ class SiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SiteRequest $request)
     {
-        //
+        try {
+            $sites = new Site();
+
+            $sites->Username = $request->username;
+            $sites->Password = Hash::make($request->password);
+            $sites->Subdomain = $request->subdomain;
+            $sites->Domain = $request->domain;
+            $sites->save();
+
+            return redirect()->route('sites.index')->with('success', 'Sites Add Successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error'=>$e->getMessage()]);
+        }
     }
 
     /**
@@ -44,9 +59,8 @@ class SiteController extends Controller
      * @param  \App\Models\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function show(Site $site)
+    public function show()
     {
-        //
     }
 
     /**

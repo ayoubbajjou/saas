@@ -1,15 +1,40 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.master')
+@section('css')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
+@section('title')
+    Dashboard
+@stop
+@endsection
+@section('page-header')
+<!-- breadcrumb -->
+<div class="page-title">
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="mb-0"> Dashboard</h4>
+        </div>
+        <div class="col-sm-6">
+            <ol class="float-left pt-0 pr-0 breadcrumb float-sm-right ">
+                <li class="breadcrumb-item"><a href="#" class="default-color">Sites</a></li>
+                <li class="breadcrumb-item active">Sites Page</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb -->
+@endsection
+@section('content')
+<!-- row -->
+<div class="row">
+    <div class=" col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <p>Page content goes here<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             </div>
         </div>
     </div>
-</x-app-layout>
+</div>
+<!-- row closed -->
+@endsection
+@section('js')
+
+@endsection

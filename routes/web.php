@@ -18,9 +18,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/sites/index', function () {
+        return view('sites.index');
+    })->name('sites.index');
 
+    Route::get('/empty1', [App\Http\Controllers\SiteController::class, 'empty']);
     Route::resource('sites', App\Http\Controllers\SiteController::class);
 });
