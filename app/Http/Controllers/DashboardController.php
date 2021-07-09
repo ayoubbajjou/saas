@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     /**
-     * Display the dashboard
+     * Display the dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    
     public function index()
     {
         return view('dashboard');

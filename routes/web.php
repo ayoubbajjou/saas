@@ -13,14 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-
-    Route::get('/sites/index', function () {
-        return view('sites.index');
-    })->name('sites.index');
-
-    Route::get('/empty1', [App\Http\Controllers\SiteController::class, 'empty']);
-    Route::resource('sites', App\Http\Controllers\SiteController::class);
+    Route::resource('sites', App\Http\Controllers\SiteController::class)->except(['edit', 'update']);
 });

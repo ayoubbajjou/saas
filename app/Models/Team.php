@@ -50,6 +50,7 @@ class Team extends JetstreamTeam
      */
     public function paddleEmail()
     {
-        return $this->owner->email;
+        return 'TBD';
+        //return $this->owner->email;
     }
 }
