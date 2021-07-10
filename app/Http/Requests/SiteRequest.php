@@ -24,7 +24,7 @@ class SiteRequest extends FormRequest
     public function rules()
     {
         return [
-                'username' =>'required',
+                'email' =>'required',
                 'password' =>'required',
                 'subdomain' =>'required',
                 'domain' => 'required|url',

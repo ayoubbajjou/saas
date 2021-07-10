@@ -13,7 +13,7 @@ class SiteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -23,25 +23,25 @@ class SiteController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('sites.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\SiteRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SiteRequest $request)
     {
         try {
             $sites = new Site();
 
-            $sites->Username = $request->username;
+            $sites->Email = $request->email;
             $sites->Password = Hash::make($request->password);
             $sites->Subdomain = $request->subdomain;
             $sites->Domain = $request->domain;
@@ -57,43 +57,21 @@ class SiteController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Site  $site
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function show()
+    public function show(Site $site)
     {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Site  $site
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Site $site)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Site  $site
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Site $site)
-    {
-        //
+        return view('sites.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Site  $site
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Site $site)
     {
-        //
+        return redirect()->route('sites.index')->with('success', 'Sites deleted Successfully');
     }
 }
