@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+     use Spatie\Activitylog\Models\Activity;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    // return Activity::all();
     return view('welcome');
 });
 
@@ -22,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('sites.index');
     })->name('sites.index');
 
+    Route::get('/dashboard', [App\Http\Controllers\SiteController::class, 'show'])->name('dashboard');
     Route::get('/empty1', [App\Http\Controllers\SiteController::class, 'empty']);
     Route::resource('sites', App\Http\Controllers\SiteController::class);
 });
