@@ -8,16 +8,18 @@ use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 use Spark\Billable;
+use Spark\Spark;
 
 class Team extends JetstreamTeam
 {
     use HasFactory, Billable;
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    //  billing spark config ...
+
+//         Spark::billable(Team::class)->resolve(function (Request $request) {
+//     return $request->user()->currentTeam;
+    // });
+
     protected $casts = [
         'personal_team' => 'boolean',
     ];
@@ -53,4 +55,9 @@ class Team extends JetstreamTeam
         return 'TBD';
         //return $this->owner->email;
     }
+
+    // Spark::billable(Team::class)->authorize(function (Team $billable, Request $request) {
+//     return $request->user() &&
+//            $request->user()->ownsTeam($billable);
+// });
 }
