@@ -5,18 +5,32 @@
         @if (theme()->getOption('skin', 'page-title/display') && theme()->getOption('skin', 'header/left') !== 'page-title')
             {{ theme()->getView('skin/page-title/_default') }}
         @endif
-
 		<!--begin::Actions-->
         <div class="d-flex align-items-center py-1">
-            <!--begin::Wrapper-->
             <div class="me-4">
-                <!--begin::Menu-->
-                <!--end::Menu-->
             </div>
-            <!--end::Wrapper-->
+            @switch(Route::currentRouteName())
+            @case('sites.index')
+            <div class="d-flex align-items-center">
+                <a href="{{route('sites.create')}}" class="btn btn-sm btn-secondary fw-bolder disabled me-4">
+                    {{__('Accept Transfer')}}
+                </a>
 
-            <!--begin::Wrapper-->
-            <!--end::Wrapper-->
+                <a href="{{route('sites.create')}}" class="btn btn-sm btn-primary fw-bolder">
+                    {{__('Add Site')}}
+                </a>
+
+            </div>
+                    
+                @break
+            @case(2)
+                
+                @break
+            @default
+                
+        @endswitch
+
+
         </div>
 		<!--end::Actions-->
     </div>

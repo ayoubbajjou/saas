@@ -1,23 +1,14 @@
 <?php
 
 return [
-    'index' => [
-        'title'       => 'Dashboard',
-        'description' => '',
-        'view'        => 'index',
-        'skin'      => [
-            'page-title' => [
-                'description' => true,
-                'breadcrumb'  => false,
-            ],
-        ],
-        'assets'      => [
-            'custom' => [
-                'js' => [
-                    'js/custom/widgets.js',
-                ],
-            ],
-        ],
+    'sites' => [
+        'title'       => 'Sites',
+    ],
+
+    'sites' => [
+        'create' => [
+            'title'       => 'Add a site'
+        ]
     ],
 
     'login'           => [

@@ -61,7 +61,7 @@ return [
         'header'     => [
             'display'   => true, // Display header
             'width'     => 'fluid', // Set header width(fixed|fluid)
-            'left'      => 'page-title', // Set left part content(menu|page-title)
+            'left'      => 'menu', // Set left part content(menu|page-title)
             'fixed'     => [
                 'desktop'           => true,  // Set fixed header for desktop
                 'tablet-and-mobile' => true, // Set fixed header for talet & mobile
@@ -88,7 +88,7 @@ return [
 
         // Page title
         'page-title' => [
-            'display'               => false, // Display page title
+            'display'               => true, // Display page title
             'breadcrumb'            => false, // Display breadcrumb
             'description'           => false, // Display description
             'layout'                => 'select', // Set layout(default|select)
