@@ -2,7 +2,7 @@
     $logoFileName = 'logo.svg';
 
     if (theme()->getOption('skin', 'aside/theme') === 'light') {
-        $logoFileName = 'logo-dark.svg';
+        $logoFileName = 'k.svg';
     }
 @endphp
 
